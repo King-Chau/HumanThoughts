@@ -134,7 +134,7 @@ export default function components() {
                                     : result.error
                                     ? `Please try another image！`
                                     : result.data ||
-                                      '👩🏻: My cat'}
+                                      ' 😹 Trying to get some work done, but this fluffy distraction is too cute to resist. ❤️💻 #WorkFromHomeLife #Pawsitivity #Caturday #RagdollCat #MyAssistantIsCutest'}
                             </p>
                         </div>
                         {compressing ? (
