@@ -79,7 +79,7 @@ export default function components() {
         })
         if (!response.ok) {
             const errorData = await response.json()
-            setResult({ data: '我好像没有识别出来，换一张图片或者重新上传！', error: errorData.error })
+            setResult({ data: 'Please try another image!', error: errorData.error })
             setLoading(false)
             return
         }
@@ -91,14 +91,14 @@ export default function components() {
     return (
         <div className="container">
             <Head>
-                <title>朋友圈文案生成</title>
+                <title>Instagram Caption Generator</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             </Head>
             <main className="flex flex-col items-center justify-center min-h-screen py-2">
                 <Card className="max-w-md ">
                     <CardHeader>
                         <div className="flex items-center">
-                            <h2 className="text-2xl font-bold">上传照片，AI生成朋友圈文案</h2>
+                            <h2 className="text-2xl font-bold">Free AI Instagram Caption Generator</h2>
                         </div>
                     </CardHeader>
                 <div className="w-full max-w-md px-2 py-2">
@@ -119,7 +119,7 @@ export default function components() {
                                 onChange={previewImage}
                             />
                             <Button type="submit" variant="dark" disabled={loading || compressing}>
-                                {compressing ? '识别图像中' : loading ? '识别图像中' : '朋友圈文案生成'}
+                                {compressing ? 'Generating...' : loading ? 'Generating...' : 'Generate'}
                             </Button>
                         </div>
                     </form>
@@ -130,11 +130,11 @@ export default function components() {
                                 {compressing
                                     ? '👩🏻'
                                     : loading
-                                    ? '朋友圈文案生成中...'
+                                    ? 'Generating...'
                                     : result.error
-                                    ? `好像我没看懂照片，请重试或换一张图片！`
+                                    ? `Please try another image！`
                                     : result.data ||
-                                      '👩🏻: 加班到深夜，有猫咪陪伴，再苦也值得。'}
+                                      '👩🏻: My cat'}
                             </p>
                         </div>
                         {compressing ? (
@@ -152,7 +152,7 @@ export default function components() {
                         )}
                     </CardContent>
                 </Card>
-                <p className="tip mt-4">本服务不会收集、存储或使用任何与图片相关的个人信息</p>
+                <p className="tip mt-4">Feel free to upload image</p>
                 <footer className="flex justify-center items-center">
                     &copy; 2024
                     {'-'}
